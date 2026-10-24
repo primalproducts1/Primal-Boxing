@@ -19,6 +19,22 @@ try{
  assert.equal(await p.evaluate(()=>clock.state),'prepare');
  await p.waitForFunction(()=>!backgroundMusic.paused);await p.waitForTimeout(800);
  assert.ok(await p.evaluate(()=>PrimalMusic.getContext().state==='running'));
+ // Reach work then rest using the real clock; the same audio must continue.
+ await p.evaluate(()=>{document.getElementById('voice').checked=false;cancelVoice();window.musicPauseCount=0;backgroundMusic.addEventListener('pause',()=>window.musicPauseCount++);clock.tick(clock.end+1);stage();});
+ await p.waitForFunction(()=>clock.state==='work');
+ const beforeRest=await p.evaluate(()=>backgroundMusic.currentTime);
+ await p.evaluate(()=>{clock.tick(clock.end+1);stage();});
+ await p.waitForFunction(()=>clock.state==='rest');await p.waitForTimeout(200);
+ assert.ok(await p.evaluate(()=>!backgroundMusic.paused));
+ assert.equal(await p.evaluate(()=>window.musicPauseCount),0);
+ assert.ok(await p.evaluate(()=>backgroundMusic.currentTime)>=beforeRest);
+ // Seek to the true end of the supplied MP3 and observe native repetition.
+ await p.waitForFunction(()=>Number.isFinite(backgroundMusic.duration)&&backgroundMusic.duration>2300);
+ await p.evaluate(()=>{backgroundMusic.currentTime=backgroundMusic.duration-.35;});
+ await p.waitForFunction(()=>backgroundMusic.currentTime<2&&!backgroundMusic.paused,{},{timeout:10000});
+ assert.equal(await p.evaluate(()=>backgroundMusic.loop),true);
+ console.log('PASS: uninterrupted rest and actual MP3 automatic loop');
+
  await p.locator('#start').click();await p.waitForFunction(()=>backgroundMusic.paused);assert.equal(await p.evaluate(()=>clock.state),'paused');
  await p.locator('#start').click();await p.waitForFunction(()=>!backgroundMusic.paused);
  await p.locator('#stop').click();await p.locator('#trainTab').click();

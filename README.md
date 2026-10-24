@@ -10,16 +10,19 @@ Se conserva el entrenamiento publicado: tiempos, combos, voz, grabación, músic
 - Gestión para borrar los datos locales de PRIMAL; no borra archivos del dispositivo.
 - Referencias promocionales a otras marcas y nombres antiguos retiradas del código.
 - Las menciones a proveedores necesarias para explicar el tratamiento de datos se mantienen en privacidad.
-- Música original conservada expresamente a petición del propietario. NO se certifican sus derechos.
+- Música reemplazada por la pista EDM aportada el 24/10/2026, completa y optimizada a MP3 estéreo de 80 kbps (unos 23,4 MB). Se reproduce durante preparación, rounds y descansos y se repite automáticamente. Pausar o finalizar la sesión detiene la música.
 - Playlist editable manteniendo el mismo reproductor y la misma mezcla con el video.
 - Enlaces de compartir trofeos adaptados al dominio desde el que se abre la app.
 
 ## Antes de publicar: pendientes reales
 1. En `legal-config.js`, completa `legalName` con el nombre de la persona o razón social responsable y `notificationAddress` con su dirección válida de notificaciones. El nombre público solicitado es `primalproducts1` y el correo es `primalproducts1@gmail.com`. El alias no prueba identidad legal. No se inventaron estos datos.
-2. Sustituye la música antes de exponer el paquete al público, salvo que cuentes con autorización suficiente. La música actual se conserva para pruebas por solicitud expresa. Una etiqueta «sin copyright» no equivale a autorización para redistribuir un MP3 ni incluirlo en videos.
+2. Conserva la licencia de la pista aportada para su uso en web y en videos compartidos. El archivo se incorporó a petición del propietario; no se realizó una verificación de su licencia.
 3. Conserva pruebas de derechos/licencias de música, voz pregrabada, imágenes y marca. El repositorio no contiene una acreditación suficiente de esos derechos. Mantener los recursos o quitar nombres no los convierte en originales ni libres de derechos.
 4. Verifica antecedentes de marca y las condiciones de los servicios utilizados; comprar un dominio no concede derechos de marca. Revisión jurídica recomendada para identidad, privacidad, proveedores y licencias antes del lanzamiento. No hay certificación ni blindaje absoluto.
 5. Revisa las instrucciones de publicación y realiza una prueba en tus dispositivos, incluida grabación y compartir.
+
+## Actualización de música
+Reemplaza todo el contenido de la carpeta publicada por los archivos de este ZIP. El MP3 nuevo ya viene incluido y los enlaces tienen una versión nueva para evitar reproducir la copia anterior en caché. No subas el ZIP como un solo archivo: descomprímelo y sustituye sus archivos y carpetas.
 
 ## Publicar el ZIP en el repositorio
 1. Descomprime. `index.html` debe quedar en la raíz de la carpeta publicada, no dentro de una carpeta adicional.
@@ -29,7 +32,7 @@ Se conserva el entrenamiento publicado: tiempos, combos, voz, grabación, músic
 5. Comprueba términos, correo, reproducción, pausa, voz, grabación y descarga desde el dominio final.
 
 ## Cambiar la música
-Una canción: reemplaza `audio/primal-background.mp3` por un MP3 autorizado con el mismo nombre.
+Una canción: reemplaza `audio/primal-background.mp3` por un MP3 autorizado con el mismo nombre y cambia `PRIMAL_MUSIC_VERSION` en `music-playlist.js` para actualizar la caché.
 Varias canciones: añade MP3 en `audio/` con nombres como `pista-02.mp3`; en `music-playlist.js`, añade las rutas al array. Se reproducen en orden y vuelven a la primera. La pausa, el volumen y la mezcla del video siguen usando el mismo elemento de audio. Los archivos han de ser MP3 normales, no descargas cifradas de plataformas. No subas documentos privados de licencia al repositorio público.
 
 ## Privacidad y migración

@@ -8,7 +8,7 @@ test('one music graph feeds speakers and recording; rounds, manual mute and repe
  const audio=elements.backgroundMusic,phase=s=>{body.dataset.state=s;observe();},tap=id=>elements[id].dispatchEvent(new Event('click'));
  assert.equal(audio.paused,true);phase('prepare');tap('start');await Promise.resolve();await Promise.resolve();assert.equal(audio.paused,false);assert.equal(audio.muted,false);phase('paused');assert.equal(audio.paused,true);phase('prepare');assert.equal(audio.paused,false);
  phase('work');assert.equal(audio.paused,false);const ctx=window.PrimalMusic.getContext(),mixer={};window.PrimalMusic.attachRecorder(ctx,mixer);assert.ok(source.connections.has(output));assert.ok(output.connections.has(ctx.destination));assert.ok(output.connections.has(mixer));
- phase('paused');assert.equal(audio.paused,true);phase('work');assert.equal(audio.paused,false);phase('rest');assert.equal(audio.paused,true);phase('work');tap('musicToggle');assert.equal(audio.paused,true);phase('rest');phase('work');assert.equal(audio.paused,true);tap('musicToggle');assert.equal(audio.paused,false);
+ phase('paused');assert.equal(audio.paused,true);phase('work');assert.equal(audio.paused,false);phase('rest');assert.equal(audio.paused,false);phase('work');tap('musicToggle');assert.equal(audio.paused,true);phase('rest');phase('work');assert.equal(audio.paused,true);tap('musicToggle');assert.equal(audio.paused,false);
  phase('done');assert.equal(audio.paused,true);window.PrimalMusic.detachRecorder();assert.ok(!output.connections.has(mixer));assert.ok(output.connections.has(ctx.destination));const nextMixer={};window.PrimalMusic.attachRecorder(ctx,nextMixer);assert.equal(contexts,1);assert.ok(output.connections.has(nextMixer));phase('idle');assert.equal(audio.paused,true);
 });
 test('late playback rejection after a pause cannot block the next round',async()=>{
@@ -21,7 +21,7 @@ test('late playback rejection after a pause cannot block the next round',async()
  body.dataset.state='prepare';window.PrimalMusic.startFromGesture();body.dataset.state='paused';observe();
  rejects[0](Object.assign(new Error('old play interrupted'),{name:'AbortError'}));await Promise.resolve();await Promise.resolve();
  body.dataset.state='work';observe();assert.equal(elements.backgroundMusic.paused,false);assert.equal(elements.backgroundMusic.muted,false);assert.doesNotMatch(elements.musicStatus.textContent,/bloqueó/);
- body.dataset.state='rest';observe();assert.equal(elements.backgroundMusic.paused,true);
+ body.dataset.state='rest';observe();assert.equal(elements.backgroundMusic.paused,false);
 });
 test('playlist advances and wraps on the same audio element and preserves pause',()=>{
  const ids=['backgroundMusic','musicToggle','recordStageMusic','musicStatus','musicVolume','start','recordStart'],elements=Object.fromEntries(ids.map(x=>[x,new Element()]));
@@ -31,4 +31,16 @@ test('playlist advances and wraps on the same audio element and preserves pause'
  const audio=elements.backgroundMusic;assert.equal(audio.src,'./audio/one.mp3');assert.equal(audio.loop,false);
  body.dataset.state='work';observe();audio.dispatchEvent(new Event('ended'));assert.equal(audio.src,'./audio/two.mp3');assert.equal(audio.paused,false);
  body.dataset.state='paused';observe();audio.dispatchEvent(new Event('ended'));assert.equal(audio.src,'./audio/one.mp3');assert.equal(audio.paused,true);
+});
+test('single-track end restarts during rest but never overrides mute or session pause',()=>{
+ const ids=['backgroundMusic','musicToggle','recordStageMusic','musicStatus','musicVolume','start','recordStart'];
+ const elements=Object.fromEntries(ids.map(x=>[x,new Element()])),body={dataset:{state:'rest'}},doc=new EventTarget();doc.body=body;doc.getElementById=x=>elements[x];let observe;
+ const window={PRIMAL_MUSIC_PLAYLIST:['./audio/one.mp3'],PrimalI18n:{lang:'es'},AudioContext:class{constructor(){this.state='running';this.destination={}}createMediaElementSource(){return new Node}createGain(){return new Node}resume(){return Promise.resolve()}}};
+ vm.runInNewContext(fs.readFileSync(require('node:path').join(__dirname,'../music.js'),'utf8'),{window,document:doc,MutationObserver:class{constructor(fn){observe=fn}observe(){}},console,Promise});
+ const audio=elements.backgroundMusic;assert.equal(audio.loop,true);
+ audio.currentTime=100;audio.paused=true;audio.dispatchEvent(new Event('ended'));assert.equal(audio.currentTime,0);assert.equal(audio.paused,false);
+ elements.musicToggle.dispatchEvent(new Event('click'));audio.dispatchEvent(new Event('ended'));assert.equal(audio.paused,true);
+ elements.musicToggle.dispatchEvent(new Event('click'));assert.equal(audio.paused,false);
+ body.dataset.state='paused';observe();audio.dispatchEvent(new Event('ended'));assert.equal(audio.paused,true);
+ body.dataset.state='done';observe();audio.dispatchEvent(new Event('ended'));assert.equal(audio.paused,true);
 });

@@ -3,7 +3,7 @@ test('identidad PRIMAL, imagen y favicon',()=>{const html=read('index.html');ass
 test('música local MP3 sin reproductor externo ni reproductor flotante',()=>{
  const h=read('index.html'),m=read('music.js');
  assert.match(h,/id="backgroundMusic"/);
- assert.match(h,/src="\.\/audio\/primal-background\.mp3"/);
+ assert.match(h,/src="\.\/audio\/primal-background\.mp3(?:\?v=[^" ]+)?"/);
  assert.match(m,/attachRecorder/);
  assert.match(m,/createMediaElementSource/);
  assert.ok(fs.statSync(path.join(root,'audio','primal-background.mp3')).size>1000000);
