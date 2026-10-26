@@ -41,7 +41,7 @@
       <div class="execution-control"><label for="gapLive">Tiempo para ejecutar <strong id="gapLiveValue">2 s</strong></label><input id="gapLive" type="range" min="1" max="12" step="1" value="2"><p id="executionStatus"></p><small>La pausa empieza al terminar la voz. Puedes ajustarla aquí.</small></div><div class="ring-bottom"><button id="voiceQuick" aria-label="Activar o desactivar instrucciones de voz" aria-pressed="true"><svg viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4V5Zm4 3c3 2 3 6 0 8m3-11c5 4 5 10 0 14"/></svg><span id="voiceStatus">Voz activada</span></button><button id="skip" disabled>SIGUIENTE COMBO <span aria-hidden="true">↻</span></button></div>
     </section>
 
-    <div class="transport"><button class="start" id="start">EMPEZAR ENTRENAMIENTO <span aria-hidden="true">▶</span></button><button id="stop" class="secondary" disabled>Finalizar sesión</button></div>
+    <div class="transport"><button class="start" id="start">EMPEZAR ENTRENAMIENTO <span aria-hidden="true"></span></button><button id="stop" class="secondary" disabled>Finalizar sesión</button></div>
     <p class="session-footnote" id="sessionFootnote">UNA COMBINACIÓN A LA VEZ.</p>
 <aside id="musicDock" class="primal-music-dock" aria-label="Música de fondo">
   <audio id="backgroundMusic" src="./audio/primal-background.mp3?v=20261024-edm" loop preload="metadata" playsinline></audio>
