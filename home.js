@@ -11,7 +11,7 @@
   $('sequence').replaceChildren(Object.assign(document.createElement('span'),{className:'ready-word',textContent:T('Manos arriba.','Hands up.')}));
   $('cue').textContent=T('Escucha la combinación y sigue tu ritmo.','Listen to the combination and keep your rhythm.');
   $('counter').textContent='00 COMBOS';$('progress').style.width='0%';$('stop').disabled=true;$('skip').disabled=true;$('config').disabled=false;$('start').disabled=false;$('testVoice').disabled=false;
-  $('start').dataset.label='';$('start').innerHTML=T('EMPEZAR ENTRENAMIENTO','START WORKOUT')+' <span>▶</span>';refresh();
+  $('start').dataset.label='';$('start').innerHTML=T('EMPEZAR ENTRENAMIENTO','START WORKOUT')+' <span></span>';refresh();
   for(const dialog of document.querySelectorAll('dialog'))if(dialog.open)dialog.close();
   window.scrollTo({top:0,behavior:'instant'});
  }
