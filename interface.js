@@ -19,7 +19,7 @@ function sync(){
  for(const b of nav.children){const route=b.id==='trainTab'?'train':b.id==='primalClubTab'?'club':b.id==='recordTab'?'record':b.dataset.sheet==='historySheet'?'history':'guide';const selected=route===active;b.classList.toggle('selected',selected);if(selected)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');}
  recordTab.querySelector('span').textContent=t('Grabar','Record');
  document.getElementById('trainTab').querySelector('span').textContent=t('Inicio','Home');
- resume.textContent=clock.state==='paused'?t(' Continuar sesión',' Resume workout'):t('Ⅱ Pausar sesión','Ⅱ Pause workout');
+ resume.textContent=clock.state==='paused'?t(' Continuar sesión',' Resume workout'):t(' Pausar sesión',' Pause workout');
  resume.hidden=!window.PrimalRecorder?.active||['idle','done'].includes(clock.state);
 }
 function go(sheet){if(!canLeave())return;pauseForNavigation();const target=document.getElementById(sheet);closeOthers(target);top=target;if(!target.open)target.showModal();sync();target.querySelector('[data-close]')?.focus({preventScroll:true});}

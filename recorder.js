@@ -48,7 +48,7 @@
     updateSoundButton();
     return ctx.state==='running';
   }
-  function updateSoundButton(){const b=$('recordStageSound'),ready=ctx?.state==='running';b.classList.toggle('is-ready',ready);b.textContent=ready?T('◖)) Audio activo','◖)) Audio on'):T('◖)) Activar audio','◖)) Enable audio');b.setAttribute('aria-label',T('Activar audio de voz y música','Enable voice and music audio'));}
+  function updateSoundButton(){const b=$('recordStageSound'),ready=ctx?.state==='running';b.classList.toggle('is-ready',ready);b.textContent=ready?T(' Audio activo',' Audio on'):T(' Activar audio',' Enable audio');b.setAttribute('aria-label',T('Activar audio de voz y música','Enable voice and music audio'));}
   function stopSpeaking(){window.PrimalVoice?.stop();}
   function say(text,done){window.PrimalVoice.say(text,done);return true;}
   function releaseHardware(){
@@ -192,7 +192,7 @@
 
     // REC badge
     gfx.textAlign='left';gfx.fillStyle='#ff5146';gfx.font=`900 ${Math.round(w*0.024)}px system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif`;
-    gfx.fillText('● REC',pad+14,h*0.105);
+    gfx.fillText(' REC',pad+14,h*0.105);
     gfx.fillStyle='rgba(255,255,255,.94)';gfx.font=`700 ${Math.round(w*0.024)}px system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif`;
     gfx.fillText(overlay.phase,pad+86,h*0.105);
 

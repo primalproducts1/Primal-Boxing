@@ -4,6 +4,7 @@
 const VERSION=1;
 const levels=[{xp:0,es:'Novato',en:'Rookie'},{xp:500,es:'Contendiente',en:'Contender'},{xp:1500,es:'Luchador',en:'Fighter'},{xp:3500,es:'Campeón',en:'Champion'},{xp:7500,es:'Leyenda',en:'Legend'}];
 const badges=[
+ ['community','sessions',1,'Parte del club','Part of the club','Completa tu primera sesión y descubre la comunidad PRIMAL.','Finish your first workout and discover the PRIMAL community.','shield'],
  ['first','sessions',1,'Primer round','First bell','Termina todos los rounds de tu primera sesión, de cualquier duración.','Finish every round of your first workout, of any duration.','glove'],
  ['five','sessions',5,'Ya eres del club','Part of the club','Completa 5 sesiones válidas.','Complete 5 qualifying workouts.','shield'],
  ['ten','sessions',10,'Doble dígito','Double digits','Completa 10 sesiones válidas.','Complete 10 qualifying workouts.','shield'],

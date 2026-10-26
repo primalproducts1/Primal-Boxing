@@ -11,10 +11,10 @@
     
     'Durante la grabación usamos una voz provisional incluida en la aplicación. La voz normal del dispositivo se mantiene cuando no grabas.':'Recording uses a bundled temporary coaching voice. Outside recording, the device voice is used as before.',
     'Pulsa Grabar y entrenar. Incluiremos la voz en el video.':'Tap Record & train. The coach voice will be included in the video.',
-    '● Grabar y entrenar':'● Record & train', 'Tu grabación':'Your video',
+    ' Grabar y entrenar':' Record & train', 'Tu grabación':'Your video',
     'Revisa el video y guárdalo antes de cerrar la página.':'Preview and save your video before leaving this page.',
-    '↓ Guardar video':'↓ Save video','Video local: no se sube a ningún servidor.':'Local video: nothing is uploaded to a server.',
-    '■ Detener video':'■ Stop video',
+    ' Guardar video':' Save video','Video local: no se sube a ningún servidor.':'Local video: nothing is uploaded to a server.',
+    ' Detener video':' Stop video',
 
     'PRIMAL Boxing Club · Tu esquina':'PRIMAL Boxing Club · Your corner',
     'ENTRENA A TU RITMO':'TRAIN AT YOUR PACE','ENTRA EN':'STEP INTO','EL RING.':'THE RING.',
@@ -118,7 +118,7 @@
     'Símbolo de PRIMAL en blanco y negro':'PRIMAL black and white logo',
     'Al empezar, verás la grabación en pantalla completa tal como quedará en el video.':'When recording starts, you will see a full-screen preview of the final video.',
     'Durante la grabación escucharás la misma voz del sistema que durante las sesiones normales. El archivo exportado contiene una pista de voz provisional distinta hasta que integremos grabaciones profesionales.':'You hear the same device voice in normal sessions and recording. Saved videos contain a different temporary recorded voice until professional recordings are added.',
-    '● Grabar y entrenar en pantalla completa':'● Record and train full-screen',
+    ' Grabar y entrenar en pantalla completa':' Record and train full-screen',
   };
   const movesEN={
     '1':['Jab','Straight punch with your lead hand. Return to guard.'],

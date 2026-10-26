@@ -1,0 +1,40 @@
+/* PRIMAL · focused controls and restrained motion */
+.brand{background:none;border:0;padding:0;text-align:left;cursor:pointer}
+.hero-subtitle,.hero-stats,.hero-mark,.welcome .eyebrow,.pc-footer,.primal-music-symbol,.primal-music-heading small{display:none!important}
+#sessionFootnote:empty{display:none}
+.welcome{padding-top:22px;padding-bottom:18px;min-height:155px}
+.hero-character-frame{top:14px}
+.transport .secondary:not(:disabled){display:flex;align-items:center;justify-content:center;width:100%;position:relative;isolation:isolate;min-height:62px;padding:18px 24px;border:0;background:transparent;border-radius:0;font-size:14px;font-weight:750;color:#141416;text-decoration:none;margin-top:5px}
+.transport .secondary:not(:disabled)::before{content:'';position:absolute;inset:0;z-index:-1;background:#f5f3ee;mask:url('./brush-stroke.png') center/100% 100% no-repeat;-webkit-mask:url('./brush-stroke.png') center/100% 100% no-repeat}
+.transport{display:flex;flex-direction:column}
+.record-cta .record-action-icon svg{stroke:#141416}
+.ui-options.refined-options{border:1px solid #34363e;border-radius:16px;background:#18191d;margin:12px 0 18px;padding:0;overflow:hidden}
+.refined-options>summary{display:flex;gap:12px;align-items:center;padding:16px;min-height:76px;list-style:none}
+.refined-options>summary::after{display:none!important}
+.disclosure-icon{display:grid;place-items:center;width:36px;height:36px;flex-shrink:0;border-radius:11px;background:#24262b;color:#f3f1eb}
+.disclosure-icon svg{width:20px;height:20px}
+.disclosure-copy{flex:1;min-width:0}.disclosure-copy b{display:block;font-size:13px;color:#f3f1eb;font-weight:650}.disclosure-copy small{display:block;font-size:11px;color:#a7a9b2;line-height:1.4;margin-top:4px}
+.disclosure-value{color:#f5f3ef;font-size:13px;font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+.disclosure-chevron{width:20px;height:20px;color:#aaaeb9;transition:transform .2s ease}.disclosure-chevron svg{width:20px;height:20px}.refined-options[open] .disclosure-chevron{transform:rotate(180deg)}
+.refined-options[open]>summary{border-bottom:1px solid #34363e}
+.refined-options .execution-control{padding:16px}.refined-options .execution-control small{font-size:11px}
+.ui-options.refined-options .primal-music-dock{margin:0!important;border:0!important;background:transparent!important;padding:16px!important;box-shadow:none!important}
+.refined-options .primal-music-heading{display:none}.primal-music-actions label{font-size:12px;color:#c2c4ca}#musicVolumeValue{float:right;font-variant-numeric:tabular-nums}#musicVolume{accent-color:#ef4237}#musicStatus{font-size:11px!important}
+.sheet input[type=number],.sheet select{font-size:16px}
+.pc-close svg{width:20px;height:20px}.pc-badge.is-earned .pc-medal{transition:transform .2s,filter .2s}.pc-badge.is-earned:hover .pc-medal{transform:translateY(-3px) rotate(-4deg);filter:drop-shadow(0 3px 10px #dac54b44)}
+.medal-celebrate .pc-medal,.medal-celebrate>svg{animation:medal-pop 1.4s cubic-bezier(.2,.8,.2,1) both}
+@keyframes medal-pop{0%{transform:scale(.65) rotate(-14deg);filter:drop-shadow(0 0 0 #f8df6a00)}35%{transform:scale(1.17) rotate(7deg);filter:drop-shadow(0 0 18px #f8df6a99)}65%{transform:scale(.98) rotate(-3deg)}100%{transform:scale(1) rotate(0);filter:drop-shadow(0 0 3px #f8df6a33)}}
+.community-dialog{width:min(440px,calc(100% - 24px));max-height:calc(100dvh - 32px);padding:0;margin:auto;background:#141518;color:#f5f3ef;border:1px solid #44463e;border-radius:23px;overflow:auto;box-shadow:0 24px 100px #0009}
+.community-dialog::backdrop{background:#050609d9;backdrop-filter:blur(5px)}
+.community-art{position:relative;height:210px;background:#1f2522;overflow:hidden}.community-art img{width:100%;height:100%;object-fit:cover;object-position:center 38%}.community-art::after{content:'';position:absolute;inset:0;background:linear-gradient(transparent 50%,#141518)}
+.community-close{position:absolute;z-index:2;right:12px;top:12px;width:44px;height:44px;border-radius:50%;border:1px solid #ffffff55;background:#101215d9;color:white;display:grid;place-items:center;cursor:pointer}.community-close svg{width:20px;height:20px}
+.community-copy{padding:0 24px 22px;position:relative}.community-medal{margin-top:-42px;position:relative;width:78px;height:86px;filter:drop-shadow(0 4px 12px #0008)}.community-dialog[open] .community-medal{animation:medal-pop 1.3s ease-out both}
+.community-kicker{font-size:10px;color:#e5cf66;letter-spacing:1.6px;font-weight:700;margin:10px 0}
+.community-copy h2{font-size:30px;line-height:1.1;letter-spacing:-.8px;margin:12px 0}.community-copy p{color:#bfc2c8;font-size:14px;line-height:1.6;margin:12px 0 18px}
+.community-cta{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px 22px;min-height:70px;border:0;background:transparent;color:#062613!important;font-size:13px;font-weight:800;text-align:center;text-decoration:none;line-height:1.3;cursor:pointer}
+.community-cta::before{content:'';position:absolute;z-index:-1;inset:0;background:#25d366;mask:url('./brush-stroke.png') center/100% 100% no-repeat;-webkit-mask:url('./brush-stroke.png') center/100% 100% no-repeat}.community-cta svg{width:24px;height:24px;flex-shrink:0;fill:currentColor;stroke:none}
+.community-cta[hidden]{display:none}.community-cta:disabled{opacity:.65;cursor:default}.community-later{display:block;width:100%;border:0;background:none;color:#c7c9cd;text-decoration:underline;text-underline-offset:4px;padding:14px 8px;font-size:12px;min-height:44px;cursor:pointer}.community-copy .community-note{font-size:11px;line-height:1.4;margin:6px 0 0;text-align:center;color:#969ba6}
+@media(max-width:360px){.refined-options>summary{padding:12px;gap:9px}.disclosure-copy small{font-size:10px}.community-copy{padding:0 18px 18px}.community-copy h2{font-size:27px}.community-art{height:180px}}
+@media(prefers-reduced-motion:reduce){.medal-celebrate .pc-medal,.medal-celebrate>svg,.community-dialog[open] .community-medal{animation:none!important}.pc-medal,.disclosure-chevron{transition:none!important}}
+
+.hero-home{width:100%;height:100%;border:0;padding:0;background:none;display:flex;align-items:center;justify-content:center;cursor:pointer}.hero-home .hero-character{max-width:100%;object-position:center}

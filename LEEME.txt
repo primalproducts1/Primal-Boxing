@@ -1,18 +1,31 @@
-PRIMAL BOXING — UI BRUSH
+PRIMAL BOXING — PAQUETE COMPLETO / 26 OCTUBRE 2026
 
 SUBIR A GITHUB
 1. Guarda una copia de tu versión actual.
-2. Descomprime este ZIP.
-3. Sube su contenido (no el ZIP ni una carpeta adicional) a la raíz del repositorio que publica /Primal-Boxing/, reemplazando archivos con el mismo nombre.
-4. Conserva CNAME y la configuración de GitHub Pages de tu repositorio.
-5. Espera a que termine Pages y recarga con Ctrl + F5.
+2. Descomprime el ZIP y sube TODOS sus archivos y carpetas al repositorio que publica /Primal-Boxing/. No subas el ZIP ni una carpeta contenedora extra.
+3. Reemplaza los archivos del mismo nombre. Conserva CNAME y la configuración de Pages si existen.
+4. Espera al despliegue y recarga la página. Los scripts y estilos incluyen una versión nueva para evitar la caché anterior.
 
-Si solo quieres aplicar el cambio visual sobre la versión publicada revisada, reemplaza index.html y añade/reemplaza brush-ui.css, brush-ui.js y brush-stroke.png. El ZIP incluye también todos los recursos originales, música y voces.
+ENLACE DE WHATSAPP
+Abre community-config.js y cambia esta única línea:
+  whatsappUrl: '',
+por:
+  whatsappUrl: 'https://chat.whatsapp.com/TU_ENLACE_REAL',
+
+Usa tu enlace real. Mientras esté vacío, el botón aparece como «Comunidad próximamente» y no abre una dirección falsa. Cuando lo añadas mostrará «Entrar a la comunidad». No requiere servidor, credenciales ni cuentas. El archivo de configuración debe seguir incluido antes de community.js.
 
 CAMBIOS
-Pincelada roja para la acción principal y blanca con texto negro para acciones secundarias. Cabecera compacta. Música y pausa entre combinaciones agrupadas en desplegables. Explicaciones de grabación agrupadas. Ajustes con campos cómodos en móvil. IDs y motores originales conservados.
+- Música al 30% al abrir, ajustable de 0 a 100%, sin la antigua amplificación al doble. El mismo nivel alimenta la grabación.
+- Retirados símbolos de texto decorativos de controles y letreros redundantes; se conservan instrucciones funcionales y avisos legales.
+- Finalizar sesión: botón brush blanco grande.
+- Música y pausa entre combos: desplegables con iconos SVG, descripción y valor visible.
+- Marca superior y símbolo PRIMAL llevan al inicio.
+- Microinteracciones en medallas nuevas; respeta reducir movimiento.
+- Nueva medalla «Parte del club» al completar la primera sesión. No se gana por finalizar antes. Se conserva «Primer round» y el progreso existente.
+- Popup con imagen de comunidad, medalla y botón verde brush con icono vectorial de WhatsApp. Aparece una vez por navegador cuando se gana la medalla. No interrumpe una grabación ni otro panel abierto. Se puede reabrir desde Trofeos > Parte del club > Conocer la comunidad.
+- Usuarios con sesiones válidas anteriores: medalla reconocida desde su historial, invitación accesible desde Trofeos.
 
 VERIFICACION
-Los 16 scripts originales coinciden byte por byte con la web consultada. Validación de sintaxis de todos los JavaScript, referencias de index.html e IDs originales. Revisión visual de inicio, ajustes, trofeos y regreso a inicio. El flujo de inicio llega al consentimiento original. No se completó una sesión ni se probó cámara/exportación en un dispositivo físico.
+Sintaxis JavaScript, referencias locales, cálculo de medallas (primera sesión, sesión incompleta y duplicados), volumen inicial y manual. Probado en navegador: popup automático y cierre, no repetición, enlace configurable, marca para volver al inicio; revisión móvil de 390 px sin desbordamiento del popup. Se usaron sesiones simuladas para verificar recompensas; no se realizó una sesión física ni una exportación de cámara en móvil.
 
-La vista previa dentro de ChatGPT es una demostración visual simplificada. Este paquete contiene la aplicación completa, no esa demostración.
+Imagen de comunidad creada con generación de imágenes integrada, como recurso ilustrativo; no representa miembros reales de PRIMAL. Brief: grupo diverso de cinco boxeadores adultos compartiendo un gesto de equipo después de entrenar, gimnasio oscuro, guantes rojos y negros, fotografía editorial sin texto ni logos.

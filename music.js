@@ -33,13 +33,14 @@
     return T('Música continua en preparación, rounds y descansos. Se repite automáticamente.','Continuous music during warmup, rounds and rests. Repeats automatically.');
   }
   function render(){
-    const label=blocked?T('▶ Activar audio','▶ Enable audio'):userPaused?T('♫ Activar música','♫ Enable music'):T('♫ Desactivar música','♫ Disable music');
+    const label=blocked?T(' Activar audio',' Enable audio'):userPaused?T(' Activar música',' Enable music'):T(' Desactivar música',' Disable music');
     for(const b of [toggle,stageToggle])if(b){b.textContent=label;b.setAttribute('aria-pressed',String(!userPaused));}
     status.textContent=statusText();
   }
   function setVolume(){
     const level=Math.max(0,Math.min(1,(Number(volumeInput.value)||0)/100));
-    if(output){audio.volume=1;output.gain.value=level*2;}
+    const label=$('musicVolumeValue');if(label)label.textContent=Math.round(level*100)+'%';
+    if(output){audio.volume=1;output.gain.value=level;}
     else audio.volume=level;
   }
   function getContext(){
