@@ -61,7 +61,13 @@ function render(){
  <button class="pc-train">${t('VOLVER AL ENTRENAMIENTO','BACK TO TRAINING')} <span></span></button><p class="pc-footer">PRIMAL BOXING CLUB · EARN YOUR NEXT ROUND.</p></div>`;
  dialog.querySelector('.pc-close').onclick=()=>dialog.close();dialog.querySelector('.pc-train').onclick=()=>dialog.close();
  dialog.querySelectorAll('[data-pc-filter]').forEach(b=>b.onclick=()=>{const scroll=dialog.scrollTop;filter=b.dataset.pcFilter;render();dialog.scrollTop=scroll;dialog.querySelector(`[data-pc-filter="${filter}"]`).focus({preventScroll:true});});
- dialog.querySelectorAll('[data-open-community]').forEach(b=>b.onclick=()=>window.PrimalCommunity?.open());
+dialog.querySelectorAll('[data-open-community]').forEach(b => {
+  b.onclick = () => window.open(
+    'https://whatsapp.com/channel/0029VbEI2DP60eBiwGUkSM03',
+    '_blank',
+    'noopener,noreferrer'
+  );
+});
  dialog.querySelectorAll('[data-share-badge]').forEach(b=>b.onclick=()=>shareBadge(b.dataset.shareBadge));
  dialog.querySelectorAll('[data-save-badge]').forEach(b=>b.onclick=()=>shareBadge(b.dataset.saveBadge,true));
  dialog.querySelector('#pcExport').onclick=()=>{const blob=new Blob([JSON.stringify({version:1,records},null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='PRIMAL-mi-progreso-'+R.dayKey(Date.now())+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),3000);};
