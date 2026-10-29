@@ -1,8 +1,7 @@
-/* COMUNIDAD PRIMAL — pega el enlace de invitación de WhatsApp entre las comillas.
- * Ejemplo: whatsappUrl: 'https://chat.whatsapp.com/TU_ENLACE'
- * Déjalo vacío hasta tenerlo: el popup mostrará «Comunidad próximamente».
- * No necesitas modificar community.js.
- */
+/* PRIMAL BOXING CLUB — canal oficial de WhatsApp.
+   Para cambiar el enlace, edita únicamente whatsappUrl.
+   El enlace debe comenzar por https://whatsapp.com/channel/
+*/
 window.PRIMAL_COMMUNITY = {
-  whatsappUrl: ''
+  whatsappUrl: 'https://whatsapp.com/channel/0029VbEI2DP60eBiwGUkSM03'
 };
